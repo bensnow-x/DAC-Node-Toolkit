@@ -1,45 +1,52 @@
 #!/bin/bash
 
+clear
+
+CYAN="\e[36m"
+GREEN="\e[32m"
+RED="\e[31m"
+YELLOW="\e[33m"
+WHITE="\e[97m"
+BLUE="\e[34m"
+NC="\e[0m"
+
 while true; do
 clear
 
-GREEN="\033[1;32m"
-RED="\033[1;31m"
-YELLOW="\033[1;33m"
-BLUE="\033[1;34m"
-CYAN="\033[1;36m"
-WHITE="\033[1;37m"
-NC="\033[0m"
-
-echo -e "${CYAN}"
-echo "╔══════════════════════════════════════════════════════╗"
-echo "║              🚀 DAC NODE TOOLKIT v1.0               ║"
-echo "╚══════════════════════════════════════════════════════╝"
-echo -e "${NC}"
-
-PEERS=$(pgrep -f gdacnode >/dev/null && echo "Connected" || echo "Offline")
-
-if pgrep -f gdacnode >/dev/null; then
-STATUS="${GREEN}● RUNNING${NC}"
+if pgrep -f dacnode >/dev/null; then
+    STATUS="${GREEN}● RUNNING${NC}"
 else
-STATUS="${RED}● OFFLINE${NC}"
+    STATUS="${RED}● OFFLINE${NC}"
 fi
 
+echo -e "${CYAN}"
+echo "╔══════════════════════════════════════════════╗"
+echo "║          🚀 DAC NODE TOOLKIT v2.0           ║"
+echo "╚══════════════════════════════════════════════╝"
+echo -e "${NC}"
+
 echo -e "Status   : $STATUS"
-echo -e "Peers    : ${YELLOW}$PEERS${NC}"
-echo ""
+echo -e "Network  : DAC Testnet"
+echo -e "Peers    : Loading..."
+echo -e "Block    : Loading..."
+echo -e "Sync     : Loading..."
+echo
 
-echo -e "${BLUE}Memory${NC}"
-free -h
+echo -e "${BLUE}══════════ SYSTEM ══════════${NC}"
+free -h | head -2
+echo
+top -b -n1 | head -5
 
-echo ""
+echo
+echo -e "${YELLOW}══════════ MENU ══════════${NC}"
+echo "1. View Logs"
+echo "2. Restart Node"
+echo "3. Explorer"
+echo "4. Update Toolkit"
+echo "0. Exit"
 
-echo -e "${BLUE}CPU${NC}"
-top -b -n1 | head -8
-
-echo ""
-
-echo -e "${CYAN}Time : $(date)${NC}"
+echo
+echo -e "${WHITE}$(date)${NC}"
 
 sleep 2
 done
