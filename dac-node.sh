@@ -32,4 +32,8 @@ case $menu in
 9) git pull ;;
 0) exit ;;
 *) echo "Invalid menu." ;;
-exec ./dac-node.sh
+esac
+
+echo
+read -p "Press Enter to return..."
+exec "$ROOT_DIR/dac-node.sh"
