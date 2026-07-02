@@ -1,15 +1,24 @@
 #!/bin/bash
 
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+ROOT_DIR="$(dirname "$SCRIPT_DIR")"
+
+cd "$ROOT_DIR"
+
 clear
-echo "================================="
-echo "      STOP DAC NODE"
-echo "================================="
+echo "=============================="
+echo "        STOP DAC NODE"
+echo "=============================="
+echo
 
 pkill -f gdacnode
 pkill -f dacnode
+pkill -f geth
 
 echo
 echo "Node stopped."
 
-read -p "Press Enter..."
-bash ../dac-node.sh
+echo
+read -p "Press Enter to return..."
+
+exec bash "$ROOT_DIR/dac-node.sh"
