@@ -2,19 +2,19 @@
 
 clear
 
-echo "========================================="
-echo "        DAC NODE TOOLKIT INSTALLER"
-echo "========================================="
+echo "=================================================="
+echo "               DAC NODE INSTALLER"
+echo "=================================================="
 echo
 
-# Check root
+# Pastikan root
 if [ "$EUID" -ne 0 ]; then
     echo "Please run as root."
     exit 1
 fi
 
-echo "[1/4] Updating package list..."
-apt update
+echo "[1/4] Updating system..."
+apt update && apt upgrade -y
 
 echo
 echo "[2/4] Installing dependencies..."
@@ -38,7 +38,7 @@ chmod +x scripts/*.sh
 echo
 echo "[4/4] Installation completed!"
 echo
-echo "Run the toolkit using:"
+echo "Run the manager with:"
 echo
 echo "bash dac-node.sh"
 echo
