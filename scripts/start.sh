@@ -23,4 +23,5 @@ echo "Done."
 echo
 read -p "Press Enter to return..."
 
-exec /root/DAC-Node-Toolkit/dac-node.sh
+bash /root/DAC-Node-Toolkit/dac-node.sh
+exit 0
