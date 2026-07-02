@@ -21,7 +21,7 @@ echo "Starting node..."
 echo
 
 # Ganti command asli nanti
-echo "./gdacnode --config config/config.toml"
+/root/dacnode --datadir /root/.dac/testnet > node.log 2>&1 &
 
 echo
 echo "Restart complete."
