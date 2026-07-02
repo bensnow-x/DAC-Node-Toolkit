@@ -1,15 +1,26 @@
 #!/bin/bash
 
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+ROOT_DIR="$(dirname "$SCRIPT_DIR")"
+
+cd "$ROOT_DIR"
+
 clear
-echo "================================="
-echo "      START DAC NODE"
-echo "================================="
+echo "=============================="
+echo "        START DAC NODE"
+echo "=============================="
+echo
 
 echo "Starting node..."
+echo
 
-# Ganti dengan command asli nanti
-echo "./gdacnode --config config.toml"
+# Ganti dengan command DAC asli nanti
+echo "./gdacnode --config config/config.toml"
 
 echo
-read -p "Press Enter..."
-bash ../dac-node.sh
+echo "Done."
+
+echo
+read -p "Press Enter to return..."
+
+exec bash "$ROOT_DIR/dac-node.sh"
