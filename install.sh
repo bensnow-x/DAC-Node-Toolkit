@@ -2,32 +2,43 @@
 
 clear
 
-echo "=================================================="
-echo "                 🚀 DAC NODE"
-echo "          Blockchain Node Manager"
-echo "=================================================="
+echo "========================================="
+echo "        DAC NODE TOOLKIT INSTALLER"
+echo "========================================="
 echo
 
-echo "[1/4] Updating system..."
-sudo apt update && sudo apt upgrade -y
+# Check root
+if [ "$EUID" -ne 0 ]; then
+    echo "Please run as root."
+    exit 1
+fi
+
+echo "[1/4] Updating package list..."
+apt update
 
 echo
-echo "[2/4] Installing required packages..."
-sudo apt install -y curl wget git jq nano tmux htop unzip tar
+echo "[2/4] Installing dependencies..."
+apt install -y \
+git \
+curl \
+wget \
+jq \
+nano \
+tmux \
+htop \
+unzip \
+tar
 
 echo
-echo "[3/4] Creating project directories..."
-mkdir -p ~/dac-node
-mkdir -p ~/dac-node/logs
-mkdir -p ~/dac-node/backups
+echo "[3/4] Setting permissions..."
+chmod +x dac-node.sh
+chmod +x install.sh
+chmod +x scripts/*.sh
 
 echo
 echo "[4/4] Installation completed!"
 echo
-
-echo "Toolkit installed successfully."
+echo "Run the toolkit using:"
 echo
-echo "Run the toolkit with:"
-echo
-echo "    bash dac-node.sh"
+echo "bash dac-node.sh"
 echo
