@@ -6,9 +6,8 @@ ROOT_DIR="$(dirname "$SCRIPT_DIR")"
 cd "$ROOT_DIR"
 
 clear
-
 echo "=============================="
-echo "        LIVE LOGS"
+echo "          LIVE LOGS"
 echo "=============================="
 echo
 
@@ -18,8 +17,6 @@ if [ -f "$LOGFILE" ]; then
     tail -f "$LOGFILE"
 else
     echo "node.log not found."
-fi
-echo "node.log not found."
 fi
 
 echo
