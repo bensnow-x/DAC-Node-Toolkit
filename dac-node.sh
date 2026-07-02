@@ -33,7 +33,3 @@ case $menu in
 0) exit ;;
 *) echo "Invalid menu." ;;
 esac
-
-echo
-read -p "Press Enter to return..."
-exec "$ROOT_DIR/dac-node.sh"
