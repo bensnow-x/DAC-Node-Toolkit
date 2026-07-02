@@ -22,4 +22,7 @@ echo "Done."
 
 echo
 read -p "Press Enter to return to menu..."
+
+echo "ROOT_DIR=$ROOT_DIR"
+
 exec "$ROOT_DIR/dac-node.sh"
