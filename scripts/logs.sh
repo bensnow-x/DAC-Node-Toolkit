@@ -11,7 +11,7 @@ echo "          LIVE LOGS"
 echo "=============================="
 echo
 
-LOGFILE="/root/DAC-Node-Toolkit/node.log"
+LOGFILE="$ROOT_DIR/node.log"
 
 if [ -f "$LOGFILE" ]; then
     tail -f "$LOGFILE"
