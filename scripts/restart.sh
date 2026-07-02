@@ -21,14 +21,11 @@ echo "Starting node..."
 echo
 
 # Ganti command asli nanti
-echo "./gdacnode --config config/config.toml"
+/root/dacnode --datadir /root/.dac/testnet > node.log 2>&1 &
 
 echo
 echo "Restart complete."
 
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-ROOT_DIR="$(dirname "$SCRIPT_DIR")"
-
 echo
-read -p "Press Enter to return to menu..."
-exec bash "$ROOT_DIR/dac-node.sh"
+read -p "Press Enter..."
+exit 0

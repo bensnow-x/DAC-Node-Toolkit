@@ -6,21 +6,19 @@ ROOT_DIR="$(dirname "$SCRIPT_DIR")"
 cd "$ROOT_DIR"
 
 clear
-
 echo "=============================="
-echo "        LIVE LOGS"
+echo "          LIVE LOGS"
 echo "=============================="
 echo
 
-if [ -f node.log ]; then
-tail -f node.log
+LOGFILE="$ROOT_DIR/node.log"
+
+if [ -f "$LOGFILE" ]; then
+    tail -f "$LOGFILE"
 else
-echo "node.log not found."
+    echo "node.log not found."
 fi
 
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-ROOT_DIR="$(dirname "$SCRIPT_DIR")"
-
 echo
-read -p "Press Enter to return to menu..."
-exec bash "$ROOT_DIR/dac-node.sh"
+read -p "Press Enter..."
+exit 0
