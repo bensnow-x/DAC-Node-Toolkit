@@ -12,9 +12,13 @@ echo "        LIVE LOGS"
 echo "=============================="
 echo
 
-if [ -f node.log ]; then
-tail -f node.log
+LOGFILE="/root/DAC-Node-Toolkit/node.log"
+
+if [ -f "$LOGFILE" ]; then
+    tail -f "$LOGFILE"
 else
+    echo "node.log not found."
+fi
 echo "node.log not found."
 fi
 
