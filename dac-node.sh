@@ -32,4 +32,4 @@ case $menu in
 9) git pull ;;
 0) exit ;;
 *) echo "Invalid menu." ;;
-esac
+exec ./dac-node.sh
