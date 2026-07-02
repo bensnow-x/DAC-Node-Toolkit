@@ -21,7 +21,5 @@ echo
 echo "Done."
 
 echo
-read -p "Press Enter to return..."
-
-bash /root/DAC-Node-Toolkit/dac-node.sh
-exit 0
+read -p "Press Enter to return to menu..."
+exec "$ROOT_DIR/dac-node.sh"
