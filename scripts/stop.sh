@@ -19,5 +19,5 @@ echo
 echo "Node stopped."
 
 echo
-read -p "Press Enter..."
-exit 0
+read -p "Press Enter to return to menu..."
+exec "$ROOT_DIR/dac-node.sh"
