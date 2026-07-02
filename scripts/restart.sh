@@ -1,18 +1,32 @@
 #!/bin/bash
 
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+ROOT_DIR="$(dirname "$SCRIPT_DIR")"
+
+cd "$ROOT_DIR"
+
 clear
-echo "Restarting node..."
+echo "=============================="
+echo "      RESTART DAC NODE"
+echo "=============================="
+echo
 
 pkill -f gdacnode
 pkill -f dacnode
+pkill -f geth
 
 sleep 2
 
-# Ganti dengan command start asli nanti
-echo "./gdacnode --config config.toml"
+echo "Starting node..."
+echo
+
+# Ganti command asli nanti
+echo "./gdacnode --config config/config.toml"
 
 echo
 echo "Restart complete."
 
-read -p "Press Enter..."
-bash ../dac-node.sh
+echo
+read -p "Press Enter to return..."
+
+exec bash "$ROOT_DIR/dac-node.sh"
