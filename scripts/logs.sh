@@ -1,13 +1,24 @@
 #!/bin/bash
 
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+ROOT_DIR="$(dirname "$SCRIPT_DIR")"
+
+cd "$ROOT_DIR"
+
 clear
-echo "================================="
+
+echo "=============================="
 echo "        LIVE LOGS"
-echo "================================="
+echo "=============================="
+echo
+
+if [ -f node.log ]; then
+tail -f node.log
+else
+echo "node.log not found."
+fi
 
 echo
-echo "Replace this with:"
-echo "tail -f /path/to/dac.log"
+read -p "Press Enter to return..."
 
-read -p "Press Enter..."
-bash ../dac-node.sh
+exec bash "$ROOT_DIR/dac-node.sh"
