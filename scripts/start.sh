@@ -15,7 +15,7 @@ echo "Starting node..."
 echo
 
 # Jalankan node
-./gdacnode --config config/config.toml > node.log 2>&1 &
+/root/dacnode --datadir /root/.dac/testnet > node.log 2>&1 &
 
 echo
 echo "Done."
