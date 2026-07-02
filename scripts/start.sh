@@ -14,8 +14,8 @@ echo
 echo "Starting node..."
 echo
 
-# Ganti dengan command DAC asli nanti
-echo "./gdacnode --config config/config.toml"
+# Jalankan node
+./gdacnode --config config/config.toml > node.log 2>&1 &
 
 echo
 echo "Done."
